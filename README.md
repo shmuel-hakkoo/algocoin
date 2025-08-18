@@ -22,3 +22,19 @@ export PATH="/home/henry/.venv/bin:$PATH"
 
 - `make activate` - Activate the virtual environment (if you choosed the home dir)
 - `make install-nautilus` - Install nautilus_trader package
+
+
+## Market Data
+
+
+* [binance-historical](https://github.com/binance/binance-public-data?tab=readme-ov-file)
+
+
+### Daily
+
+* [BTCUSD_PERP](https://data.binance.vision/?prefix=data/futures/cm/daily/trades/BTCUSD_PERP/)
+
+
+### Montly
+
+* [BTCUSD_PERP](https://data.binance.vision/?prefix=data/futures/cm/monthly/trades/BTCUSD_PERP/)

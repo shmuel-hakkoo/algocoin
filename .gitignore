@@ -1,0 +1,14 @@
+./data/spot
+./data/binance/*.zip
+./data/binance/!/updates/*.zip
+./data/binance/.DS_Store
+./data/binance/.idea/
+./data/binance/*/.DS_Store
+./data/binance/*/.idea/
+./data/binance/*/__pycache__/
+./data/binance/python/data/
+.DS_Store
+.idea/
+*/.DS_Store
+*/.idea/
+*/__pycache__/

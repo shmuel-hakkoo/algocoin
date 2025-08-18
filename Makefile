@@ -13,3 +13,6 @@ install-nautilus:
 jupyter:
 	docker run -p 8888:8888 ghcr.io/nautechsystems/jupyterlab:nightly
 
+
+binance-data:
+	uv pip install -r data/binance/python/requirements.txt
