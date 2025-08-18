@@ -24,17 +24,23 @@ export PATH="/home/henry/.venv/bin:$PATH"
 - `make install-nautilus` - Install nautilus_trader package
 
 
-## Market Data
 
 
-* [binance-historical](https://github.com/binance/binance-public-data?tab=readme-ov-file)
 
+### Watch File Changes
 
-### Daily
+```
+# Install entr
+sudo apt install entr
 
-* [BTCUSD_PERP](https://data.binance.vision/?prefix=data/futures/cm/daily/trades/BTCUSD_PERP/)
+# Watch and auto-run when src/load.py changes
+echo src/load.py | entr -r python src/load.py
 
+# Watch multiple files
+find . -name "*.py" | entr -r python src/load.py
 
-### Montly
+# Run in virtual environment
+echo src/load.py | entr -r ~/.venv/bin/python src/load.py
 
-* [BTCUSD_PERP](https://data.binance.vision/?prefix=data/futures/cm/monthly/trades/BTCUSD_PERP/)
+The -r flag restarts the command when files change.
+```

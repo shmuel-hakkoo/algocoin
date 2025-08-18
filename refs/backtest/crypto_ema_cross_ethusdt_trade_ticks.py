@@ -72,6 +72,8 @@ if __name__ == "__main__":
     provider = TestDataProvider()
     wrangler = TradeTickDataWrangler(instrument=ETHUSDT_BINANCE)
     ticks = wrangler.process(provider.read_csv_ticks("binance/ethusdt-trades.csv"))
+
+    #ticks = wrangler.process(provider.read_csv_bars("/home/henry/hakkoo/algocoin/data/binance/python/data/spot/monthly/klines/BTCUSDT/15m/BTCUSDT-15m-2025-02.csv"))
     engine.add_data(ticks)
 
     # Configure your strategy
