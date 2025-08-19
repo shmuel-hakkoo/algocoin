@@ -3556,3 +3556,522 @@ DB::Exception: Table crypto.klines doesn't exist.. Stack trace:
 2025-08-19 16:34:26,035 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2025-07.csv
 2025-08-19 16:34:26,036 - INFO - 🏁 Upload complete: 63 successful, 0 errors
 2025-08-19 16:34:26,036 - INFO - ✅ Successfully processed 63 files (2,760,460 total rows)
+2025-08-19 16:38:55,361 - INFO - 🎯 Starting CSV upload from data/futures/um/monthly/klines/BTCUSDT/1m
+2025-08-19 16:38:55,361 - INFO - 📦 Batch size: 5000
+2025-08-19 16:38:55,361 - INFO - 🔍 Dry run: False
+2025-08-19 16:39:05,452 - WARNING - Failed to connect to wf7wnhobg6.germanywestcentral.azure.clickhouse.cloud:9000
+Traceback (most recent call last):
+  File "/home/henry/.venv/lib/python3.11/site-packages/clickhouse_driver/connection.py", line 399, in connect
+    return self._init_connection(host, port)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/henry/.venv/lib/python3.11/site-packages/clickhouse_driver/connection.py", line 329, in _init_connection
+    self.socket = self._create_socket(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/henry/.venv/lib/python3.11/site-packages/clickhouse_driver/connection.py", line 301, in _create_socket
+    raise err
+  File "/home/henry/.venv/lib/python3.11/site-packages/clickhouse_driver/connection.py", line 292, in _create_socket
+    sock.connect(sa)
+TimeoutError: timed out
+2025-08-19 16:39:05,453 - ERROR - 💥 Fatal error: Failed to connect to ClickHouse (host=wf7wnhobg6.germanywestcentral.azure.clickhouse.cloud, db=crypto): Code: 209. (wf7wnhobg6.germanywestcentral.azure.clickhouse.cloud:9000)
+2025-08-19 16:40:08,144 - INFO - 🎯 Starting CSV upload from data/futures/um/monthly/klines/BTCUSDT/1m
+2025-08-19 16:40:08,145 - INFO - 📦 Batch size: 5000
+2025-08-19 16:40:08,145 - INFO - 🔍 Dry run: False
+2025-08-19 16:40:08,146 - ERROR - 💥 Fatal error: Failed to connect to ClickHouse (host=localhost, db=crypto): Code: 193.
+DB::Exception: Wrong password for user default. Stack trace:
+
+0. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(StackTrace::StackTrace()+0x16) [0x7f3984b798a6]
+1. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(+0x18f95d2) [0x7f3982af95d2]
+2. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(+0x120376e) [0x7f398240376e]
+3. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(+0x12037d8) [0x7f39824037d8]
+4. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(DB::Context::setUser(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Poco::Net::SocketAddress const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7f3982c5e449]
+5. /usr/sbin/clickhouse-server(+0x74508) [0x5589b79a3508]
+6. /usr/sbin/clickhouse-server(+0x7abd4) [0x5589b79a9bd4]
+7. /lib/x86_64-linux-gnu/libPocoNet.so.80(Poco::Net::TCPServerConnection::start()+0x7) [0x7f3980bd4367]
+8. /lib/x86_64-linux-gnu/libPocoNet.so.80(Poco::Net::TCPServerDispatcher::run()+0xb6) [0x7f3980bd4ed6]
+9. /lib/x86_64-linux-gnu/libPocoFoundation.so.80(Poco::PooledThread::run()+0x8e) [0x7f3980d658ee]
+10. /lib/x86_64-linux-gnu/libPocoFoundation.so.80(Poco::ThreadImpl::runnableEntry(void*)+0x9b) [0x7f3980d62bfb]
+11. /lib/x86_64-linux-gnu/libc.so.6(+0x891f5) [0x7f39806a81f5]
+12. /lib/x86_64-linux-gnu/libc.so.6(+0x10989c) [0x7f398072889c]
+
+2025-08-19 16:41:13,098 - INFO - 🎯 Starting CSV upload from data/futures/um/monthly/klines/BTCUSDT/1m
+2025-08-19 16:41:13,098 - INFO - 📦 Batch size: 5000
+2025-08-19 16:41:13,098 - INFO - 🔍 Dry run: False
+2025-08-19 16:41:13,099 - ERROR - 💥 Fatal error: Failed to connect to ClickHouse (host=localhost, db=crypto): Code: 193.
+DB::Exception: Wrong password for user default. Stack trace:
+
+0. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(StackTrace::StackTrace()+0x16) [0x7f3984b798a6]
+1. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(+0x18f95d2) [0x7f3982af95d2]
+2. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(+0x120376e) [0x7f398240376e]
+3. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(+0x12037d8) [0x7f39824037d8]
+4. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(DB::Context::setUser(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Poco::Net::SocketAddress const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7f3982c5e449]
+5. /usr/sbin/clickhouse-server(+0x74508) [0x5589b79a3508]
+6. /usr/sbin/clickhouse-server(+0x7abd4) [0x5589b79a9bd4]
+7. /lib/x86_64-linux-gnu/libPocoNet.so.80(Poco::Net::TCPServerConnection::start()+0x7) [0x7f3980bd4367]
+8. /lib/x86_64-linux-gnu/libPocoNet.so.80(Poco::Net::TCPServerDispatcher::run()+0xb6) [0x7f3980bd4ed6]
+9. /lib/x86_64-linux-gnu/libPocoFoundation.so.80(Poco::PooledThread::run()+0x8e) [0x7f3980d658ee]
+10. /lib/x86_64-linux-gnu/libPocoFoundation.so.80(Poco::ThreadImpl::runnableEntry(void*)+0x9b) [0x7f3980d62bfb]
+11. /lib/x86_64-linux-gnu/libc.so.6(+0x891f5) [0x7f39806a81f5]
+12. /lib/x86_64-linux-gnu/libc.so.6(+0x10989c) [0x7f398072889c]
+
+2025-08-19 16:44:16,374 - INFO - 🎯 Starting CSV upload from data/futures/um/monthly/klines/BTCUSDT/1m
+2025-08-19 16:44:16,374 - INFO - 📦 Batch size: 5000
+2025-08-19 16:44:16,374 - INFO - 🔍 Dry run: False
+2025-08-19 16:44:16,377 - ERROR - 💥 Fatal error: Failed to connect to ClickHouse (host=localhost, db=crypto): Code: 193.
+DB::Exception: Wrong password for user default. Stack trace:
+
+0. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(StackTrace::StackTrace()+0x16) [0x7f1c421798a6]
+1. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(+0x18f95d2) [0x7f1c400f95d2]
+2. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(+0x120376e) [0x7f1c3fa0376e]
+3. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(+0x12037d8) [0x7f1c3fa037d8]
+4. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(DB::Context::setUser(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Poco::Net::SocketAddress const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7f1c4025e449]
+5. /usr/sbin/clickhouse-server(+0x74508) [0x55c77e611508]
+6. /usr/sbin/clickhouse-server(+0x7abd4) [0x55c77e617bd4]
+7. /lib/x86_64-linux-gnu/libPocoNet.so.80(Poco::Net::TCPServerConnection::start()+0x7) [0x7f1c3e1d4367]
+8. /lib/x86_64-linux-gnu/libPocoNet.so.80(Poco::Net::TCPServerDispatcher::run()+0xb6) [0x7f1c3e1d4ed6]
+9. /lib/x86_64-linux-gnu/libPocoFoundation.so.80(Poco::PooledThread::run()+0x8e) [0x7f1c3e3658ee]
+10. /lib/x86_64-linux-gnu/libPocoFoundation.so.80(Poco::ThreadImpl::runnableEntry(void*)+0x9b) [0x7f1c3e362bfb]
+11. /lib/x86_64-linux-gnu/libc.so.6(+0x891f5) [0x7f1c3dca81f5]
+12. /lib/x86_64-linux-gnu/libc.so.6(+0x10989c) [0x7f1c3dd2889c]
+
+2025-08-19 16:46:07,997 - INFO - 🎯 Starting CSV upload from data/futures/um/monthly/klines/BTCUSDT/1m
+2025-08-19 16:46:07,997 - INFO - 📦 Batch size: 5000
+2025-08-19 16:46:07,997 - INFO - 🔍 Dry run: False
+2025-08-19 16:46:07,998 - ERROR - 💥 Fatal error: Failed to connect to ClickHouse (host=localhost, db=crypto): Code: 193.
+DB::Exception: Wrong password for user default. Stack trace:
+
+0. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(StackTrace::StackTrace()+0x16) [0x7f08b4d798a6]
+1. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(+0x18f95d2) [0x7f08b2cf95d2]
+2. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(+0x120376e) [0x7f08b260376e]
+3. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(+0x12037d8) [0x7f08b26037d8]
+4. /lib/x86_64-linux-gnu/libclickhouse.so.18.16(DB::Context::setUser(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Poco::Net::SocketAddress const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7f08b2e5e449]
+5. /usr/sbin/clickhouse-server(+0x74508) [0x55b0ca0ca508]
+6. /usr/sbin/clickhouse-server(+0x7abd4) [0x55b0ca0d0bd4]
+7. /lib/x86_64-linux-gnu/libPocoNet.so.80(Poco::Net::TCPServerConnection::start()+0x7) [0x7f08b0dd4367]
+8. /lib/x86_64-linux-gnu/libPocoNet.so.80(Poco::Net::TCPServerDispatcher::run()+0xb6) [0x7f08b0dd4ed6]
+9. /lib/x86_64-linux-gnu/libPocoFoundation.so.80(Poco::PooledThread::run()+0x8e) [0x7f08b0f658ee]
+10. /lib/x86_64-linux-gnu/libPocoFoundation.so.80(Poco::ThreadImpl::runnableEntry(void*)+0x9b) [0x7f08b0f62bfb]
+11. /lib/x86_64-linux-gnu/libc.so.6(+0x891f5) [0x7f08b08a81f5]
+12. /lib/x86_64-linux-gnu/libc.so.6(+0x10989c) [0x7f08b092889c]
+
+2025-08-19 16:46:24,615 - INFO - 🎯 Starting CSV upload from data/futures/um/monthly/klines/BTCUSDT/1m
+2025-08-19 16:46:24,615 - INFO - 📦 Batch size: 5000
+2025-08-19 16:46:24,615 - INFO - 🔍 Dry run: False
+2025-08-19 16:46:24,617 - INFO - ✓ Connected to ClickHouse at localhost/crypto
+2025-08-19 16:46:24,617 - INFO - 🔧 Creating database schema...
+2025-08-19 16:46:24,618 - INFO - ✓ Database crypto created/verified
+2025-08-19 16:46:24,658 - INFO - ✓ Klines table created/verified
+2025-08-19 16:46:24,658 - INFO - 🎉 Database schema setup complete!
+2025-08-19 16:46:24,659 - INFO - 🚀 Found 63 CSV files to process
+2025-08-19 16:46:24,659 - INFO - 📈 Symbol: BTCUSDT, Interval: 1m
+2025-08-19 16:46:24,659 - INFO - 📂 Processing BTCUSDT-1m-2020-04.csv
+2025-08-19 16:46:24,688 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2020-04.csv
+2025-08-19 16:46:24,935 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2020-04.csv
+2025-08-19 16:46:24,936 - INFO - 📂 Processing BTCUSDT-1m-2020-06.csv
+2025-08-19 16:46:24,967 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2020-06.csv
+2025-08-19 16:46:25,209 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2020-06.csv
+2025-08-19 16:46:25,210 - INFO - 📂 Processing BTCUSDT-1m-2020-07.csv
+2025-08-19 16:46:25,241 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2020-07.csv
+2025-08-19 16:46:25,503 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2020-07.csv
+2025-08-19 16:46:25,504 - INFO - 📂 Processing BTCUSDT-1m-2020-08.csv
+2025-08-19 16:46:25,535 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2020-08.csv
+2025-08-19 16:46:25,781 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2020-08.csv
+2025-08-19 16:46:25,782 - INFO - 📂 Processing BTCUSDT-1m-2020-09.csv
+2025-08-19 16:46:25,813 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2020-09.csv
+2025-08-19 16:46:26,050 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2020-09.csv
+2025-08-19 16:46:26,051 - INFO - 📂 Processing BTCUSDT-1m-2020-10.csv
+2025-08-19 16:46:26,085 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2020-10.csv
+2025-08-19 16:46:26,346 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2020-10.csv
+2025-08-19 16:46:26,347 - INFO - 📂 Processing BTCUSDT-1m-2020-11.csv
+2025-08-19 16:46:26,380 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2020-11.csv
+2025-08-19 16:46:26,637 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2020-11.csv
+2025-08-19 16:46:26,638 - INFO - 📂 Processing BTCUSDT-1m-2020-12.csv
+2025-08-19 16:46:26,671 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2020-12.csv
+2025-08-19 16:46:26,933 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2020-12.csv
+2025-08-19 16:46:26,934 - INFO - 📂 Processing BTCUSDT-1m-2021-01.csv
+2025-08-19 16:46:26,965 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-01.csv
+2025-08-19 16:46:27,211 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-01.csv
+2025-08-19 16:46:27,212 - INFO - 📂 Processing BTCUSDT-1m-2021-02.csv
+2025-08-19 16:46:27,241 - INFO -   📊 Loaded 40319 rows from BTCUSDT-1m-2021-02.csv
+2025-08-19 16:46:27,471 - INFO -   ✅ Successfully uploaded 40319 rows from BTCUSDT-1m-2021-02.csv
+2025-08-19 16:46:27,471 - INFO - 📂 Processing BTCUSDT-1m-2021-03.csv
+2025-08-19 16:46:27,503 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-03.csv
+2025-08-19 16:46:27,751 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-03.csv
+2025-08-19 16:46:27,752 - INFO - 📂 Processing BTCUSDT-1m-2021-04.csv
+2025-08-19 16:46:27,785 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2021-04.csv
+2025-08-19 16:46:28,047 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2021-04.csv
+2025-08-19 16:46:28,049 - INFO - 📂 Processing BTCUSDT-1m-2021-05.csv
+2025-08-19 16:46:28,093 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-05.csv
+2025-08-19 16:46:28,344 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-05.csv
+2025-08-19 16:46:28,345 - INFO - 📂 Processing BTCUSDT-1m-2021-06.csv
+2025-08-19 16:46:28,380 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2021-06.csv
+2025-08-19 16:46:28,626 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2021-06.csv
+2025-08-19 16:46:28,627 - INFO - 📂 Processing BTCUSDT-1m-2021-07.csv
+2025-08-19 16:46:28,660 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-07.csv
+2025-08-19 16:46:28,911 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-07.csv
+2025-08-19 16:46:28,912 - INFO - 📂 Processing BTCUSDT-1m-2021-08.csv
+2025-08-19 16:46:28,943 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-08.csv
+2025-08-19 16:46:29,231 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-08.csv
+2025-08-19 16:46:29,232 - INFO - 📂 Processing BTCUSDT-1m-2021-09.csv
+2025-08-19 16:46:29,263 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2021-09.csv
+2025-08-19 16:46:29,507 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2021-09.csv
+2025-08-19 16:46:29,508 - INFO - 📂 Processing BTCUSDT-1m-2021-10.csv
+2025-08-19 16:46:29,539 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-10.csv
+2025-08-19 16:46:29,808 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-10.csv
+2025-08-19 16:46:29,809 - INFO - 📂 Processing BTCUSDT-1m-2021-11.csv
+2025-08-19 16:46:29,840 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2021-11.csv
+2025-08-19 16:46:30,092 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2021-11.csv
+2025-08-19 16:46:30,093 - INFO - 📂 Processing BTCUSDT-1m-2021-12.csv
+2025-08-19 16:46:30,126 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-12.csv
+2025-08-19 16:46:30,408 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-12.csv
+2025-08-19 16:46:30,409 - INFO - 📂 Processing BTCUSDT-1m-2022-01.csv
+2025-08-19 16:46:30,442 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-01.csv
+2025-08-19 16:46:30,709 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-01.csv
+2025-08-19 16:46:30,710 - INFO - 📂 Processing BTCUSDT-1m-2022-02.csv
+2025-08-19 16:46:30,738 - INFO -   📊 Loaded 40320 rows from BTCUSDT-1m-2022-02.csv
+2025-08-19 16:46:30,971 - INFO -   ✅ Successfully uploaded 40320 rows from BTCUSDT-1m-2022-02.csv
+2025-08-19 16:46:30,972 - INFO - 📂 Processing BTCUSDT-1m-2022-03.csv
+2025-08-19 16:46:31,005 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-03.csv
+2025-08-19 16:46:31,256 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-03.csv
+2025-08-19 16:46:31,257 - INFO - 📂 Processing BTCUSDT-1m-2022-04.csv
+2025-08-19 16:46:31,289 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2022-04.csv
+2025-08-19 16:46:31,538 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2022-04.csv
+2025-08-19 16:46:31,539 - INFO - 📂 Processing BTCUSDT-1m-2022-05.csv
+2025-08-19 16:46:31,570 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-05.csv
+2025-08-19 16:46:31,840 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-05.csv
+2025-08-19 16:46:31,842 - INFO - 📂 Processing BTCUSDT-1m-2022-06.csv
+2025-08-19 16:46:31,877 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2022-06.csv
+2025-08-19 16:46:32,120 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2022-06.csv
+2025-08-19 16:46:32,121 - INFO - 📂 Processing BTCUSDT-1m-2022-07.csv
+2025-08-19 16:46:32,154 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-07.csv
+2025-08-19 16:46:32,402 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-07.csv
+2025-08-19 16:46:32,403 - INFO - 📂 Processing BTCUSDT-1m-2022-08.csv
+2025-08-19 16:46:32,435 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-08.csv
+2025-08-19 16:46:32,697 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-08.csv
+2025-08-19 16:46:32,698 - INFO - 📂 Processing BTCUSDT-1m-2022-09.csv
+2025-08-19 16:46:32,731 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2022-09.csv
+2025-08-19 16:46:32,995 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2022-09.csv
+2025-08-19 16:46:32,996 - INFO - 📂 Processing BTCUSDT-1m-2022-10.csv
+2025-08-19 16:46:33,031 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-10.csv
+2025-08-19 16:46:33,288 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-10.csv
+2025-08-19 16:46:33,289 - INFO - 📂 Processing BTCUSDT-1m-2022-11.csv
+2025-08-19 16:46:33,322 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2022-11.csv
+2025-08-19 16:46:33,563 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2022-11.csv
+2025-08-19 16:46:33,564 - INFO - 📂 Processing BTCUSDT-1m-2022-12.csv
+2025-08-19 16:46:33,598 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-12.csv
+2025-08-19 16:46:33,848 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-12.csv
+2025-08-19 16:46:33,849 - INFO - 📂 Processing BTCUSDT-1m-2023-01.csv
+2025-08-19 16:46:33,882 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-01.csv
+2025-08-19 16:46:34,149 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-01.csv
+2025-08-19 16:46:34,150 - INFO - 📂 Processing BTCUSDT-1m-2023-02.csv
+2025-08-19 16:46:34,178 - INFO -   📊 Loaded 40320 rows from BTCUSDT-1m-2023-02.csv
+2025-08-19 16:46:34,407 - INFO -   ✅ Successfully uploaded 40320 rows from BTCUSDT-1m-2023-02.csv
+2025-08-19 16:46:34,408 - INFO - 📂 Processing BTCUSDT-1m-2023-03.csv
+2025-08-19 16:46:34,439 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-03.csv
+2025-08-19 16:46:34,689 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-03.csv
+2025-08-19 16:46:34,691 - INFO - 📂 Processing BTCUSDT-1m-2023-04.csv
+2025-08-19 16:46:34,721 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2023-04.csv
+2025-08-19 16:46:34,969 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2023-04.csv
+2025-08-19 16:46:34,970 - INFO - 📂 Processing BTCUSDT-1m-2023-05.csv
+2025-08-19 16:46:35,004 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-05.csv
+2025-08-19 16:46:35,272 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-05.csv
+2025-08-19 16:46:35,273 - INFO - 📂 Processing BTCUSDT-1m-2023-06.csv
+2025-08-19 16:46:35,303 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2023-06.csv
+2025-08-19 16:46:35,560 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2023-06.csv
+2025-08-19 16:46:35,560 - INFO - 📂 Processing BTCUSDT-1m-2023-07.csv
+2025-08-19 16:46:35,591 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-07.csv
+2025-08-19 16:46:35,840 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-07.csv
+2025-08-19 16:46:35,841 - INFO - 📂 Processing BTCUSDT-1m-2023-08.csv
+2025-08-19 16:46:35,873 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-08.csv
+2025-08-19 16:46:36,125 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-08.csv
+2025-08-19 16:46:36,126 - INFO - 📂 Processing BTCUSDT-1m-2023-09.csv
+2025-08-19 16:46:36,156 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2023-09.csv
+2025-08-19 16:46:36,398 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2023-09.csv
+2025-08-19 16:46:36,399 - INFO - 📂 Processing BTCUSDT-1m-2023-10.csv
+2025-08-19 16:46:36,432 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-10.csv
+2025-08-19 16:46:36,713 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-10.csv
+2025-08-19 16:46:36,715 - INFO - 📂 Processing BTCUSDT-1m-2023-11.csv
+2025-08-19 16:46:36,746 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2023-11.csv
+2025-08-19 16:46:36,986 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2023-11.csv
+2025-08-19 16:46:36,987 - INFO - 📂 Processing BTCUSDT-1m-2023-12.csv
+2025-08-19 16:46:37,018 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-12.csv
+2025-08-19 16:46:37,300 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-12.csv
+2025-08-19 16:46:37,301 - INFO - 📂 Processing BTCUSDT-1m-2024-01.csv
+2025-08-19 16:46:37,332 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-01.csv
+2025-08-19 16:46:37,587 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-01.csv
+2025-08-19 16:46:37,588 - INFO - 📂 Processing BTCUSDT-1m-2024-02.csv
+2025-08-19 16:46:37,618 - INFO -   📊 Loaded 41760 rows from BTCUSDT-1m-2024-02.csv
+2025-08-19 16:46:37,870 - INFO -   ✅ Successfully uploaded 41760 rows from BTCUSDT-1m-2024-02.csv
+2025-08-19 16:46:37,871 - INFO - 📂 Processing BTCUSDT-1m-2024-03.csv
+2025-08-19 16:46:37,902 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-03.csv
+2025-08-19 16:46:38,172 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-03.csv
+2025-08-19 16:46:38,173 - INFO - 📂 Processing BTCUSDT-1m-2024-04.csv
+2025-08-19 16:46:38,202 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2024-04.csv
+2025-08-19 16:46:38,457 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2024-04.csv
+2025-08-19 16:46:38,458 - INFO - 📂 Processing BTCUSDT-1m-2024-05.csv
+2025-08-19 16:46:38,503 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-05.csv
+2025-08-19 16:46:38,755 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-05.csv
+2025-08-19 16:46:38,756 - INFO - 📂 Processing BTCUSDT-1m-2024-06.csv
+2025-08-19 16:46:38,788 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2024-06.csv
+2025-08-19 16:46:39,036 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2024-06.csv
+2025-08-19 16:46:39,037 - INFO - 📂 Processing BTCUSDT-1m-2024-07.csv
+2025-08-19 16:46:39,068 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-07.csv
+2025-08-19 16:46:39,337 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-07.csv
+2025-08-19 16:46:39,338 - INFO - 📂 Processing BTCUSDT-1m-2024-08.csv
+2025-08-19 16:46:39,369 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-08.csv
+2025-08-19 16:46:39,620 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-08.csv
+2025-08-19 16:46:39,621 - INFO - 📂 Processing BTCUSDT-1m-2024-09.csv
+2025-08-19 16:46:39,651 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2024-09.csv
+2025-08-19 16:46:39,897 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2024-09.csv
+2025-08-19 16:46:39,898 - INFO - 📂 Processing BTCUSDT-1m-2024-10.csv
+2025-08-19 16:46:39,930 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-10.csv
+2025-08-19 16:46:40,189 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-10.csv
+2025-08-19 16:46:40,190 - INFO - 📂 Processing BTCUSDT-1m-2024-11.csv
+2025-08-19 16:46:40,218 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2024-11.csv
+2025-08-19 16:46:40,474 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2024-11.csv
+2025-08-19 16:46:40,475 - INFO - 📂 Processing BTCUSDT-1m-2024-12.csv
+2025-08-19 16:46:40,505 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-12.csv
+2025-08-19 16:46:40,760 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-12.csv
+2025-08-19 16:46:40,761 - INFO - 📂 Processing BTCUSDT-1m-2025-01.csv
+2025-08-19 16:46:40,791 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2025-01.csv
+2025-08-19 16:46:41,044 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2025-01.csv
+2025-08-19 16:46:41,045 - INFO - 📂 Processing BTCUSDT-1m-2025-02.csv
+2025-08-19 16:46:41,072 - INFO -   📊 Loaded 40320 rows from BTCUSDT-1m-2025-02.csv
+2025-08-19 16:46:41,332 - INFO -   ✅ Successfully uploaded 40320 rows from BTCUSDT-1m-2025-02.csv
+2025-08-19 16:46:41,333 - INFO - 📂 Processing BTCUSDT-1m-2025-03.csv
+2025-08-19 16:46:41,367 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2025-03.csv
+2025-08-19 16:46:41,647 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2025-03.csv
+2025-08-19 16:46:41,648 - INFO - 📂 Processing BTCUSDT-1m-2025-04.csv
+2025-08-19 16:46:41,680 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2025-04.csv
+2025-08-19 16:46:41,937 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2025-04.csv
+2025-08-19 16:46:41,937 - INFO - 📂 Processing BTCUSDT-1m-2025-05.csv
+2025-08-19 16:46:41,969 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2025-05.csv
+2025-08-19 16:46:42,230 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2025-05.csv
+2025-08-19 16:46:42,231 - INFO - 📂 Processing BTCUSDT-1m-2025-06.csv
+2025-08-19 16:46:42,263 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2025-06.csv
+2025-08-19 16:46:42,509 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2025-06.csv
+2025-08-19 16:46:42,510 - INFO - 📂 Processing BTCUSDT-1m-2025-07.csv
+2025-08-19 16:46:42,543 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2025-07.csv
+2025-08-19 16:46:42,797 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2025-07.csv
+2025-08-19 16:46:42,798 - INFO - 🏁 Upload complete: 63 successful, 0 errors
+2025-08-19 16:46:42,798 - INFO - ✅ Successfully processed 63 files (2,760,460 total rows)
+2025-08-19 16:49:50,508 - INFO - 🎯 Starting CSV upload from data/futures/um/monthly/klines/BTCUSDT/1m
+2025-08-19 16:49:50,508 - INFO - 📦 Batch size: 5000
+2025-08-19 16:49:50,508 - INFO - 🔍 Dry run: False
+2025-08-19 16:51:51,252 - ERROR - 💥 Fatal error: Failed to connect to ClickHouse (host=wf7wnhobg6.germanywestcentral.azure.clickhouse.cloud, db=crypto): Code: 81.
+DB::Exception: Database crypto does not exist. Stack trace:
+
+0. ./ci/tmp/build/./src/Common/Exception.cpp:112: DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x000000000f4b675b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x0000000009e4196c
+2. DB::Exception::Exception<String>(int, FormatStringHelperImpl<std::type_identity<String>::type>, String&&) @ 0x0000000009e4168b
+3. ./ci/tmp/build/./src/Interpreters/DatabaseCatalog.cpp:544: DB::DatabaseCatalog::assertDatabaseExists(String const&) const @ 0x0000000013591fa9
+4. ./ci/tmp/build/./src/Server/TCPHandler.cpp:346: DB::TCPHandler::runImpl() @ 0x0000000015202b63
+5. ./ci/tmp/build/./src/Server/TCPHandler.cpp:2688: DB::TCPHandler::run() @ 0x0000000015224559
+6. ./src/Server/TCPProtocolStackHandler.h:38: DB::TCPProtocolStackHandler::run() @ 0x000000000f850b3c
+7. ./ci/tmp/build/./base/poco/Net/src/TCPServerConnection.cpp:40: Poco::Net::TCPServerConnection::start() @ 0x000000001893df27
+8. ./ci/tmp/build/./base/poco/Net/src/TCPServerDispatcher.cpp:115: Poco::Net::TCPServerDispatcher::run() @ 0x000000001893e379
+9. ./ci/tmp/build/./base/poco/Foundation/src/ThreadPool.cpp:205: Poco::PooledThread::run() @ 0x000000001890295b
+10. ./base/poco/Foundation/src/Thread_POSIX.cpp:335: Poco::ThreadImpl::runnableEntry(void*) @ 0x0000000018900e3d
+11. ? @ 0x00007790fb39fac3
+12. ? @ 0x00007790fb431850
+
+2025-08-19 16:53:36,647 - INFO - 🎯 Starting CSV upload from data/futures/um/monthly/klines/BTCUSDT/1m
+2025-08-19 16:53:36,647 - INFO - 📦 Batch size: 5000
+2025-08-19 16:53:36,647 - INFO - 🔍 Dry run: False
+2025-08-19 16:53:37,014 - INFO - ✓ Connected to ClickHouse at wf7wnhobg6.germanywestcentral.azure.clickhouse.cloud/crypto
+2025-08-19 16:53:37,014 - INFO - 🔧 Creating database schema...
+2025-08-19 16:53:37,144 - INFO - ✓ Database crypto created/verified
+2025-08-19 16:53:37,484 - INFO - ✓ Klines table created/verified
+2025-08-19 16:53:37,485 - INFO - 🎉 Database schema setup complete!
+2025-08-19 16:53:37,485 - INFO - 🚀 Found 63 CSV files to process
+2025-08-19 16:53:37,485 - INFO - 📈 Symbol: BTCUSDT, Interval: 1m
+2025-08-19 16:53:37,485 - INFO - 📂 Processing BTCUSDT-1m-2020-04.csv
+2025-08-19 16:53:37,517 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2020-04.csv
+2025-08-19 16:53:41,661 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2020-04.csv
+2025-08-19 16:53:41,664 - INFO - 📂 Processing BTCUSDT-1m-2020-06.csv
+2025-08-19 16:53:41,694 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2020-06.csv
+2025-08-19 16:53:45,517 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2020-06.csv
+2025-08-19 16:53:45,520 - INFO - 📂 Processing BTCUSDT-1m-2020-07.csv
+2025-08-19 16:53:45,593 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2020-07.csv
+2025-08-19 16:53:49,354 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2020-07.csv
+2025-08-19 16:53:49,358 - INFO - 📂 Processing BTCUSDT-1m-2020-08.csv
+2025-08-19 16:53:49,425 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2020-08.csv
+2025-08-19 16:53:53,139 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2020-08.csv
+2025-08-19 16:53:53,140 - INFO - 📂 Processing BTCUSDT-1m-2020-09.csv
+2025-08-19 16:53:53,181 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2020-09.csv
+2025-08-19 16:53:57,014 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2020-09.csv
+2025-08-19 16:53:57,016 - INFO - 📂 Processing BTCUSDT-1m-2020-10.csv
+2025-08-19 16:53:57,087 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2020-10.csv
+2025-08-19 16:54:00,894 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2020-10.csv
+2025-08-19 16:54:00,895 - INFO - 📂 Processing BTCUSDT-1m-2020-11.csv
+2025-08-19 16:54:00,933 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2020-11.csv
+2025-08-19 16:54:04,823 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2020-11.csv
+2025-08-19 16:54:04,825 - INFO - 📂 Processing BTCUSDT-1m-2020-12.csv
+2025-08-19 16:54:04,858 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2020-12.csv
+2025-08-19 16:54:08,844 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2020-12.csv
+2025-08-19 16:54:08,847 - INFO - 📂 Processing BTCUSDT-1m-2021-01.csv
+2025-08-19 16:54:08,878 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-01.csv
+2025-08-19 16:54:12,813 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-01.csv
+2025-08-19 16:54:12,818 - INFO - 📂 Processing BTCUSDT-1m-2021-02.csv
+2025-08-19 16:54:12,885 - INFO -   📊 Loaded 40319 rows from BTCUSDT-1m-2021-02.csv
+2025-08-19 16:54:16,650 - INFO -   ✅ Successfully uploaded 40319 rows from BTCUSDT-1m-2021-02.csv
+2025-08-19 16:54:16,652 - INFO - 📂 Processing BTCUSDT-1m-2021-03.csv
+2025-08-19 16:54:16,723 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-03.csv
+2025-08-19 16:54:20,554 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-03.csv
+2025-08-19 16:54:20,555 - INFO - 📂 Processing BTCUSDT-1m-2021-04.csv
+2025-08-19 16:54:20,588 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2021-04.csv
+2025-08-19 16:54:24,508 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2021-04.csv
+2025-08-19 16:54:24,510 - INFO - 📂 Processing BTCUSDT-1m-2021-05.csv
+2025-08-19 16:54:24,559 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-05.csv
+2025-08-19 16:54:28,455 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-05.csv
+2025-08-19 16:54:28,460 - INFO - 📂 Processing BTCUSDT-1m-2021-06.csv
+2025-08-19 16:54:28,532 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2021-06.csv
+2025-08-19 16:54:32,347 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2021-06.csv
+2025-08-19 16:54:32,351 - INFO - 📂 Processing BTCUSDT-1m-2021-07.csv
+2025-08-19 16:54:32,418 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-07.csv
+2025-08-19 16:54:36,145 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-07.csv
+2025-08-19 16:54:36,146 - INFO - 📂 Processing BTCUSDT-1m-2021-08.csv
+2025-08-19 16:54:36,187 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-08.csv
+2025-08-19 16:54:40,076 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-08.csv
+2025-08-19 16:54:40,080 - INFO - 📂 Processing BTCUSDT-1m-2021-09.csv
+2025-08-19 16:54:40,151 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2021-09.csv
+2025-08-19 16:54:43,908 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2021-09.csv
+2025-08-19 16:54:43,909 - INFO - 📂 Processing BTCUSDT-1m-2021-10.csv
+2025-08-19 16:54:43,939 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-10.csv
+2025-08-19 16:54:47,803 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-10.csv
+2025-08-19 16:54:47,804 - INFO - 📂 Processing BTCUSDT-1m-2021-11.csv
+2025-08-19 16:54:47,837 - INFO -   📊 Loaded 43199 rows from BTCUSDT-1m-2021-11.csv
+2025-08-19 16:54:51,693 - INFO -   ✅ Successfully uploaded 43199 rows from BTCUSDT-1m-2021-11.csv
+2025-08-19 16:54:51,695 - INFO - 📂 Processing BTCUSDT-1m-2021-12.csv
+2025-08-19 16:54:51,752 - INFO -   📊 Loaded 44639 rows from BTCUSDT-1m-2021-12.csv
+2025-08-19 16:54:55,620 - INFO -   ✅ Successfully uploaded 44639 rows from BTCUSDT-1m-2021-12.csv
+2025-08-19 16:54:55,624 - INFO - 📂 Processing BTCUSDT-1m-2022-01.csv
+2025-08-19 16:54:55,696 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-01.csv
+2025-08-19 16:54:59,436 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-01.csv
+2025-08-19 16:54:59,441 - INFO - 📂 Processing BTCUSDT-1m-2022-02.csv
+2025-08-19 16:54:59,477 - INFO -   📊 Loaded 40320 rows from BTCUSDT-1m-2022-02.csv
+2025-08-19 16:55:03,254 - INFO -   ✅ Successfully uploaded 40320 rows from BTCUSDT-1m-2022-02.csv
+2025-08-19 16:55:03,257 - INFO - 📂 Processing BTCUSDT-1m-2022-03.csv
+2025-08-19 16:55:03,288 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-03.csv
+2025-08-19 16:55:07,187 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-03.csv
+2025-08-19 16:55:07,188 - INFO - 📂 Processing BTCUSDT-1m-2022-04.csv
+2025-08-19 16:55:07,221 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2022-04.csv
+2025-08-19 16:55:11,058 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2022-04.csv
+2025-08-19 16:55:11,061 - INFO - 📂 Processing BTCUSDT-1m-2022-05.csv
+2025-08-19 16:55:11,132 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-05.csv
+2025-08-19 16:55:15,008 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-05.csv
+2025-08-19 16:55:15,010 - INFO - 📂 Processing BTCUSDT-1m-2022-06.csv
+2025-08-19 16:55:15,044 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2022-06.csv
+2025-08-19 16:55:18,858 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2022-06.csv
+2025-08-19 16:55:18,859 - INFO - 📂 Processing BTCUSDT-1m-2022-07.csv
+2025-08-19 16:55:18,893 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-07.csv
+2025-08-19 16:55:22,563 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-07.csv
+2025-08-19 16:55:22,564 - INFO - 📂 Processing BTCUSDT-1m-2022-08.csv
+2025-08-19 16:55:22,598 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-08.csv
+2025-08-19 16:55:26,347 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-08.csv
+2025-08-19 16:55:26,349 - INFO - 📂 Processing BTCUSDT-1m-2022-09.csv
+2025-08-19 16:55:26,404 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2022-09.csv
+2025-08-19 16:55:30,233 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2022-09.csv
+2025-08-19 16:55:30,237 - INFO - 📂 Processing BTCUSDT-1m-2022-10.csv
+2025-08-19 16:55:30,294 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-10.csv
+2025-08-19 16:55:34,170 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-10.csv
+2025-08-19 16:55:34,171 - INFO - 📂 Processing BTCUSDT-1m-2022-11.csv
+2025-08-19 16:55:34,203 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2022-11.csv
+2025-08-19 16:55:37,984 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2022-11.csv
+2025-08-19 16:55:37,985 - INFO - 📂 Processing BTCUSDT-1m-2022-12.csv
+2025-08-19 16:55:38,017 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2022-12.csv
+2025-08-19 16:55:41,794 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2022-12.csv
+2025-08-19 16:55:41,799 - INFO - 📂 Processing BTCUSDT-1m-2023-01.csv
+2025-08-19 16:55:41,868 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-01.csv
+2025-08-19 16:55:45,687 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-01.csv
+2025-08-19 16:55:45,692 - INFO - 📂 Processing BTCUSDT-1m-2023-02.csv
+2025-08-19 16:55:45,760 - INFO -   📊 Loaded 40320 rows from BTCUSDT-1m-2023-02.csv
+2025-08-19 16:55:49,487 - INFO -   ✅ Successfully uploaded 40320 rows from BTCUSDT-1m-2023-02.csv
+2025-08-19 16:55:49,489 - INFO - 📂 Processing BTCUSDT-1m-2023-03.csv
+2025-08-19 16:55:49,521 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-03.csv
+2025-08-19 16:55:53,434 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-03.csv
+2025-08-19 16:55:53,438 - INFO - 📂 Processing BTCUSDT-1m-2023-04.csv
+2025-08-19 16:55:53,471 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2023-04.csv
+2025-08-19 16:55:57,559 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2023-04.csv
+2025-08-19 16:55:57,565 - INFO - 📂 Processing BTCUSDT-1m-2023-05.csv
+2025-08-19 16:55:57,638 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-05.csv
+2025-08-19 16:56:01,484 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-05.csv
+2025-08-19 16:56:01,489 - INFO - 📂 Processing BTCUSDT-1m-2023-06.csv
+2025-08-19 16:56:01,558 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2023-06.csv
+2025-08-19 16:56:05,444 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2023-06.csv
+2025-08-19 16:56:05,445 - INFO - 📂 Processing BTCUSDT-1m-2023-07.csv
+2025-08-19 16:56:05,488 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-07.csv
+2025-08-19 16:56:09,375 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-07.csv
+2025-08-19 16:56:09,380 - INFO - 📂 Processing BTCUSDT-1m-2023-08.csv
+2025-08-19 16:56:09,448 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-08.csv
+2025-08-19 16:56:13,513 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-08.csv
+2025-08-19 16:56:13,517 - INFO - 📂 Processing BTCUSDT-1m-2023-09.csv
+2025-08-19 16:56:13,588 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2023-09.csv
+2025-08-19 16:56:17,728 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2023-09.csv
+2025-08-19 16:56:17,729 - INFO - 📂 Processing BTCUSDT-1m-2023-10.csv
+2025-08-19 16:56:17,769 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-10.csv
+2025-08-19 16:56:21,636 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-10.csv
+2025-08-19 16:56:21,641 - INFO - 📂 Processing BTCUSDT-1m-2023-11.csv
+2025-08-19 16:56:21,709 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2023-11.csv
+2025-08-19 16:56:25,564 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2023-11.csv
+2025-08-19 16:56:25,566 - INFO - 📂 Processing BTCUSDT-1m-2023-12.csv
+2025-08-19 16:56:25,616 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2023-12.csv
+2025-08-19 16:56:29,486 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2023-12.csv
+2025-08-19 16:56:29,488 - INFO - 📂 Processing BTCUSDT-1m-2024-01.csv
+2025-08-19 16:56:29,537 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-01.csv
+2025-08-19 16:56:33,413 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-01.csv
+2025-08-19 16:56:33,417 - INFO - 📂 Processing BTCUSDT-1m-2024-02.csv
+2025-08-19 16:56:33,485 - INFO -   📊 Loaded 41760 rows from BTCUSDT-1m-2024-02.csv
+2025-08-19 16:56:37,285 - INFO -   ✅ Successfully uploaded 41760 rows from BTCUSDT-1m-2024-02.csv
+2025-08-19 16:56:37,288 - INFO - 📂 Processing BTCUSDT-1m-2024-03.csv
+2025-08-19 16:56:37,357 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-03.csv
+2025-08-19 16:56:41,263 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-03.csv
+2025-08-19 16:56:41,269 - INFO - 📂 Processing BTCUSDT-1m-2024-04.csv
+2025-08-19 16:56:41,321 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2024-04.csv
+2025-08-19 16:56:45,139 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2024-04.csv
+2025-08-19 16:56:45,143 - INFO - 📂 Processing BTCUSDT-1m-2024-05.csv
+2025-08-19 16:56:45,212 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-05.csv
+2025-08-19 16:56:49,033 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-05.csv
+2025-08-19 16:56:49,035 - INFO - 📂 Processing BTCUSDT-1m-2024-06.csv
+2025-08-19 16:56:49,066 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2024-06.csv
+2025-08-19 16:56:52,990 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2024-06.csv
+2025-08-19 16:56:52,994 - INFO - 📂 Processing BTCUSDT-1m-2024-07.csv
+2025-08-19 16:56:53,055 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-07.csv
+2025-08-19 16:56:56,980 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-07.csv
+2025-08-19 16:56:56,982 - INFO - 📂 Processing BTCUSDT-1m-2024-08.csv
+2025-08-19 16:56:57,015 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-08.csv
+2025-08-19 16:57:00,834 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-08.csv
+2025-08-19 16:57:00,839 - INFO - 📂 Processing BTCUSDT-1m-2024-09.csv
+2025-08-19 16:57:00,901 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2024-09.csv
+2025-08-19 16:57:04,836 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2024-09.csv
+2025-08-19 16:57:04,840 - INFO - 📂 Processing BTCUSDT-1m-2024-10.csv
+2025-08-19 16:57:04,911 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-10.csv
+2025-08-19 16:57:08,808 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-10.csv
+2025-08-19 16:57:08,813 - INFO - 📂 Processing BTCUSDT-1m-2024-11.csv
+2025-08-19 16:57:08,874 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2024-11.csv
+2025-08-19 16:57:12,724 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2024-11.csv
+2025-08-19 16:57:12,725 - INFO - 📂 Processing BTCUSDT-1m-2024-12.csv
+2025-08-19 16:57:12,759 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2024-12.csv
+2025-08-19 16:57:16,651 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2024-12.csv
+2025-08-19 16:57:16,653 - INFO - 📂 Processing BTCUSDT-1m-2025-01.csv
+2025-08-19 16:57:16,687 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2025-01.csv
+2025-08-19 16:57:20,446 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2025-01.csv
+2025-08-19 16:57:20,451 - INFO - 📂 Processing BTCUSDT-1m-2025-02.csv
+2025-08-19 16:57:20,517 - INFO -   📊 Loaded 40320 rows from BTCUSDT-1m-2025-02.csv
+2025-08-19 16:57:24,367 - INFO -   ✅ Successfully uploaded 40320 rows from BTCUSDT-1m-2025-02.csv
+2025-08-19 16:57:24,369 - INFO - 📂 Processing BTCUSDT-1m-2025-03.csv
+2025-08-19 16:57:24,401 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2025-03.csv
+2025-08-19 16:57:28,239 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2025-03.csv
+2025-08-19 16:57:28,244 - INFO - 📂 Processing BTCUSDT-1m-2025-04.csv
+2025-08-19 16:57:28,310 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2025-04.csv
+2025-08-19 16:57:32,082 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2025-04.csv
+2025-08-19 16:57:32,086 - INFO - 📂 Processing BTCUSDT-1m-2025-05.csv
+2025-08-19 16:57:32,146 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2025-05.csv
+2025-08-19 16:57:35,957 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2025-05.csv
+2025-08-19 16:57:35,962 - INFO - 📂 Processing BTCUSDT-1m-2025-06.csv
+2025-08-19 16:57:35,999 - INFO -   📊 Loaded 43200 rows from BTCUSDT-1m-2025-06.csv
+2025-08-19 16:57:39,892 - INFO -   ✅ Successfully uploaded 43200 rows from BTCUSDT-1m-2025-06.csv
+2025-08-19 16:57:39,894 - INFO - 📂 Processing BTCUSDT-1m-2025-07.csv
+2025-08-19 16:57:39,928 - INFO -   📊 Loaded 44640 rows from BTCUSDT-1m-2025-07.csv
+2025-08-19 16:57:43,760 - INFO -   ✅ Successfully uploaded 44640 rows from BTCUSDT-1m-2025-07.csv
+2025-08-19 16:57:43,761 - INFO - 🏁 Upload complete: 63 successful, 0 errors
+2025-08-19 16:57:43,761 - INFO - ✅ Successfully processed 63 files (2,760,460 total rows)

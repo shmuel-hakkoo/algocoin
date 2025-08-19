@@ -32,11 +32,16 @@ from tqdm import tqdm
 # Load environment variables
 load_dotenv()
 
-# ClickHouse connection settings
+# ClickHouse connection settings from environment variables
 CH_HOST = os.getenv("CH_HOST", "localhost")
 CH_USER = os.getenv("CH_USER", "default")
-CH_PASSWORD = os.getenv("CH_PASSWORD", "")
+CH_PASSWORD = os.getenv("CH_PASSWORD")
 CH_DATABASE = os.getenv("CH_DATABASE", "crypto")
+
+# Validate required environment variables
+if not CH_PASSWORD:
+    logger.warning("⚠️  CH_PASSWORD not set in environment variables. Connection may fail.")
+    logger.info("💡 Create a .env file with your ClickHouse credentials (see .env.example)")
 
 # Constants from bin/clickhouse.py
 EXCHANGE_NAME_TO_ID = {"BINANCE": 1}
@@ -88,6 +93,7 @@ class ClickHouseUploader:
                 user=user,
                 password=password,
                 database=database,
+                secure=True
             )
             # Test connection
             self.client.execute("SELECT 1")
@@ -96,26 +102,26 @@ class ClickHouseUploader:
             raise ConnectionError(
                 f"Failed to connect to ClickHouse (host={host}, db={database}): {exc}"
             ) from exc
-    
+
     def create_database_schema(self):
         """Create the required database schema if it doesn't exist."""
         logger.info("🔧 Creating database schema...")
-        
+
         # Create database if it doesn't exist
         self.client.execute(f"CREATE DATABASE IF NOT EXISTS {self.database}")
         logger.info(f"✓ Database {self.database} created/verified")
-        
+
         # Create single klines table with all data - split into steps
         try:
             # Drop and recreate to avoid issues
             self.client.execute(f"DROP TABLE IF EXISTS {self.database}.klines")
         except:
             pass
-        
+
         # Create table step by step
         create_sql = f"""CREATE TABLE {self.database}.klines (
             symbol String,
-            interval String,  
+            interval String,
             open_time DateTime,
             open Float64,
             high Float64,
@@ -128,10 +134,10 @@ class ClickHouseUploader:
             taker_base Float64,
             taker_quote Float64
         ) ENGINE MergeTree ORDER BY open_time"""
-        
+
         self.client.execute(create_sql)
         logger.info("✓ Klines table created/verified")
-        
+
         logger.info("🎉 Database schema setup complete!")
 
 
@@ -144,15 +150,15 @@ class ClickHouseUploader:
         try:
             # Try reading normally - pandas will auto-detect headers
             df = pd.read_csv(csv_path)
-            
+
             # Always ensure we have the right column names
             if len(df.columns) == len(KLINES_COLUMNS):
                 df.columns = KLINES_COLUMNS
             else:
                 raise ValueError(f"Expected {len(KLINES_COLUMNS)} columns, got {len(df.columns)}")
-                
+
             logger.info(f"  📊 Loaded {len(df)} rows from {csv_path.name}")
-                
+
         except Exception as e:
             logger.error(f"  ❌ Failed to read {csv_path}: {e}")
             return {"file": csv_path.name, "status": "error", "error": str(e)}
@@ -166,24 +172,24 @@ class ClickHouseUploader:
             # Check for invalid timestamp values
             invalid_open = df['open_time'].isna() | (df['open_time'] <= 0) | (df['open_time'] > 2**63-1)
             invalid_close = df['close_time'].isna() | (df['close_time'] <= 0) | (df['close_time'] > 2**63-1)
-            
+
             if invalid_open.any() or invalid_close.any():
                 logger.warning(f"  ⚠️  Found {invalid_open.sum()} invalid open_time and {invalid_close.sum()} invalid close_time values")
                 # Remove rows with invalid timestamps
                 df = df[~(invalid_open | invalid_close)]
                 logger.info(f"  📊 After cleaning: {len(df)} rows remaining")
-            
+
             df['open_time'] = pd.to_datetime(df['open_time'], unit='ms', utc=True, errors='coerce')
             df['close_time'] = pd.to_datetime(df['close_time'], unit='ms', utc=True, errors='coerce')
-            
+
             # Remove any rows where conversion failed
             before_clean = len(df)
             df = df.dropna(subset=['open_time', 'close_time'])
             after_clean = len(df)
-            
+
             if before_clean != after_clean:
                 logger.warning(f"  ⚠️  Removed {before_clean - after_clean} rows with invalid timestamps")
-                
+
         except Exception as e:
             logger.error(f"  ❌ Failed to convert timestamps: {e}")
             return {"file": csv_path.name, "status": "error", "error": f"Timestamp conversion error: {e}"}
@@ -302,11 +308,11 @@ def main():
 
     try:
         uploader = ClickHouseUploader()
-        
+
         # Create schema if requested
         if args.create_schema:
             uploader.create_database_schema()
-        
+
         results = uploader.upload_directory(
             data_dir=data_dir,
             batch_size=args.batch_size,

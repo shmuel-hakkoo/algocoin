@@ -12,3 +12,6 @@
 */.DS_Store
 */.idea/
 */__pycache__/
+
+
+.env

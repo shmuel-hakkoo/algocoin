@@ -143,3 +143,58 @@ This streams only yesterday’s data and inserts locally.
 ---
 
 
+
+
+---
+
+### **How to set password in older ClickHouse versions**
+
+1. Open the users configuration file:
+
+```bash
+sudo nano /etc/clickhouse-server/users.xml
+```
+
+2. Locate the `<default>` user section:
+
+```xml
+<users>
+    <default>
+        <password></password>
+        <networks>
+            <ip>::/0</ip>
+        </networks>
+        <profile>default</profile>
+        <quota>default</quota>
+    </default>
+</users>
+```
+
+3. Set your password:
+
+```xml
+<password>oijoij</password>
+```
+
+4. Save and exit.
+
+5. Restart the ClickHouse server to apply:
+
+```bash
+sudo systemctl restart clickhouse-server
+```
+
+6. Connect using the password:
+
+```bash
+clickhouse-client -u default --password
+```
+
+---
+
+✅ **Key point:**
+
+* If `ALTER USER` fails with a syntax error, you **must use `users.xml`** to set passwords.
+* `ALTER USER` only works in **ClickHouse 21.x+** (server compiled with SQL user management).
+
+If you want, I can give a **full example of securing ClickHouse for remote access** with password and IP restrictions. Do you want me to do that?
