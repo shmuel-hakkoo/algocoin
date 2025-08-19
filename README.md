@@ -1,11 +1,22 @@
 # Algocoin
 
 
+## Directory Structure
+
+* `bin`  - scripts
+* `src`  - system code
+* `data` - data research
+* `refs` - tutorials & references
+* `docs` - documentation
+
+
+
 ## Dependencies
 
 
 * [nautilus](https://github.com/nautechsystems/nautilus_trader)
 * [uv](https://docs.astral.sh/uv/)
+* [clickhouse_connect]
 
 
 ## Setup

@@ -33,3 +33,26 @@ watch:
 
 start:
 	streamlit run app.py
+
+
+# ClickHouse CSV Migration Commands
+
+# Create database schema only
+create-schema:
+	python bin/upload_csv.py --data-dir data/futures/um/monthly/klines/BTCUSDT/1m --create-schema --pattern "*.csv"
+
+# Upload single month (dry run)
+upload-csv-dry:
+	python bin/upload_csv.py --data-dir data/futures/um/monthly/klines/BTCUSDT/1m --dry-run --pattern "BTCUSDT-1m-2020-04.csv"
+
+# Upload single month (actual upload)
+upload-csv-month:
+	python bin/upload_csv.py --data-dir data/futures/um/monthly/klines/BTCUSDT/1m --pattern "BTCUSDT-1m-2020-04.csv" --batch-size 10000
+
+# Upload all BTCUSDT 1m data (WARNING: Large operation)
+upload-csv-all:
+	python bin/upload_csv.py --data-dir data/futures/um/monthly/klines/BTCUSDT/1m --batch-size 10000
+
+# Upload all data with schema creation
+upload-csv-full:
+	python bin/upload_csv.py --data-dir data/futures/um/monthly/klines/BTCUSDT/1m --create-schema --batch-size 10000
