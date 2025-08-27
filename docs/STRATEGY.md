@@ -1,4 +1,16 @@
 
+- add more lead leg indicators
+- add a 'movimento de lado' filter, so we know that 80% of the time we are out
+- so we use all of ours indicators, for the positive signal and negative
+- get more macro indicators,
+
+
+* https://www.coinglass.com/BitcoinOpenInterest
+* https://www.coinglass.com/exchanges
+* https://www.coinglass.com/LiquidationData
+* https://www.coinglass.com/CryptoApi
+* https://www.coinglass.com/whale-alert
+* https://www.coinglass.com/bitcoin-etf
 
 
 
