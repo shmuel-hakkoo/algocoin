@@ -1,3 +1,5 @@
+- for each indicator, fundamental, etc.. create a study of : correlation & lead/lag indicator
+
 
 - add more lead leg indicators
 - add a 'movimento de lado' filter, so we know that 80% of the time we are out
