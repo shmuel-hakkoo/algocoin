@@ -12,8 +12,8 @@ import re
 
 import pandas as pd
 
-from .csv_data import load_ohlcv_csv
-from .clickhouse import ClickHouseConnector
+from csv_data import load_ohlcv_csv
+from clickhouse import ClickHouseConnector
 
 __all__ = ["DataConnector"]
 
@@ -110,7 +110,7 @@ class DataConnector:
                 return i["path"]
         raise FileNotFoundError(f"CSV not found for {exchange} {symbol} {timeframe}")
 
-    def load(
+    def load_klines(
         self,
         source: str,
         spec: Any,
@@ -132,6 +132,16 @@ class DataConnector:
             ch = self._get_ch()
             if not isinstance(spec, dict):
                 raise TypeError("spec must be dict for ClickHouse")
-            return ch.candles(**spec, auto_clip=True)
+            return ch.candles(**spec, start=start, end=end, auto_clip=True)
 
         raise ValueError(f"Unknown data source: {source}")
+
+    def load_sentiment(
+        self,
+        *,
+        start: Optional[datetime] = None,
+        end: Optional[datetime] = None,
+    ) -> pd.DataFrame:
+        """Return a DataFrame with sentiment data from ClickHouse."""
+        ch = self._get_ch()
+        return ch.sentiment(start=start, end=end)

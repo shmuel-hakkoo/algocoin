@@ -1,6 +1,18 @@
 # Algocoin
 
 
+## Graphana
+
+
+Run on `dkr` folder:
+
+```
+docker-compose up -d.
+```
+
+Access Grafana at http://localhost:3000 with admin/admin.
+
+
 ## Directory Structure
 
 * `bin`  - scripts
