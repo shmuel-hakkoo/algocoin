@@ -1,12 +1,5 @@
-./data/spot
-./data/binance/*.zip
-./data/binance/!/updates/*.zip
-./data/binance/.DS_Store
-./data/binance/.idea/
-./data/binance/*/.DS_Store
-./data/binance/*/.idea/
-./data/binance/*/__pycache__/
-./data/binance/python/data/
+# Ignore all files in data directory
+data/
 .DS_Store
 .idea/
 */.DS_Store
