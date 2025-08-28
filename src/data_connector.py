@@ -13,7 +13,8 @@ import re
 import pandas as pd
 
 from .csv_data import load_ohlcv_csv
-from .clickhouse import ClickHouseConnector
+from . import clickhouse as ch
+from clickhouse_driver import Client
 
 __all__ = ["DataConnector"]
 
@@ -32,7 +33,7 @@ class DataConnector:
         self._csv_dir = Path(csv_dir)
         self._csv_info: Optional[List[Dict[str, str]]] = None
         self._ch_params = clickhouse_params or {}
-        self._ch: Optional[ClickHouseConnector] = None
+        self._ch: Optional[Client] = None
 
     # ------------------------------------------------------------------
     def _scan_csv(self) -> List[Dict[str, str]]:
@@ -54,9 +55,9 @@ class DataConnector:
             self._csv_info = info
         return self._csv_info
 
-    def _get_ch(self) -> ClickHouseConnector:
+    def _get_ch(self) -> Client:
         if self._ch is None:
-            self._ch = ClickHouseConnector(**self._ch_params)
+            self._ch = ch.create_connection(**self._ch_params)
         return self._ch
 
     # ------------------------------------------------------------------
@@ -65,9 +66,7 @@ class DataConnector:
         if source_u == "CSV":
             return sorted({i["exchange"] for i in self._scan_csv()})
         if source_u == "CLICKHOUSE":
-            from .clickhouse import EXCHANGE_NAME_TO_ID
-
-            return sorted(EXCHANGE_NAME_TO_ID.keys())
+            return sorted(ch.EXCHANGE_NAME_TO_ID.keys())
         raise ValueError(f"Unknown source: {source}")
 
     def get_symbols(self, source: str, exchange: str | None = None) -> List[str]:
@@ -89,14 +88,12 @@ class DataConnector:
         if source_u == "CSV":
             return sorted({i["timeframe"] for i in self._scan_csv()})
         if source_u == "CLICKHOUSE":
-            from .clickhouse import INTERVAL_STR_TO_CODE
-
             def _conv(tf: str) -> str:
                 if tf.endswith("m"):
                     return tf[:-1] + "min"
                 return tf
 
-            return sorted(_conv(tf) for tf in INTERVAL_STR_TO_CODE)
+            return sorted(_conv(tf) for tf in ch.INTERVAL_STR_TO_CODE)
         raise ValueError(f"Unknown source: {source}")
 
     def get_csv_path(self, exchange: str, symbol: str, timeframe: str) -> str:
@@ -129,10 +126,10 @@ class DataConnector:
             return df
 
         if source_u == "CLICKHOUSE":
-            ch = self._get_ch()
+            client = self._get_ch()
             if not isinstance(spec, dict):
                 raise TypeError("spec must be dict for ClickHouse")
-            return ch.candles(**spec, start=start, end=end, auto_clip=True)
+            return ch.get_candles(client, **spec, start=start, end=end)
 
         raise ValueError(f"Unknown data source: {source}")
 
@@ -143,5 +140,5 @@ class DataConnector:
         end: Optional[datetime] = None,
     ) -> pd.DataFrame:
         """Return a DataFrame with sentiment data from ClickHouse."""
-        ch = self._get_ch()
-        return ch.sentiment(start=start, end=end)
+        client = self._get_ch()
+        return ch.get_sentiment(client, start=start, end=end)

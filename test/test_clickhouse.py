@@ -1,4 +1,4 @@
-# tests/test_clickhouse.py
+# test/test_clickhouse.py
 # -*- coding: utf-8 -*-
 """Unit tests for the ClickHouseConnector class."""
 
@@ -12,7 +12,7 @@ import os
 # Add the project root to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from src.clickhouse import ClickHouseConnector, parse_symbol
+from src.clickhouse import create_connection, get_candles, get_sentiment, parse_symbol
 
 class TestClickHouse(unittest.TestCase):
     """Test suite for the ClickHouseConnector and utility functions."""
@@ -29,8 +29,8 @@ class TestClickHouse(unittest.TestCase):
         """Test successful connection to ClickHouse."""
         mock_instance = mock_client.return_value
         mock_instance.execute.return_value = [(1,)]
-        connector = ClickHouseConnector()
-        self.assertIsNotNone(connector.cli)
+        client = create_connection()
+        self.assertIsNotNone(client)
         mock_instance.execute.assert_called_once_with("SELECT 1")
 
     @patch('src.clickhouse.Client')
@@ -38,11 +38,11 @@ class TestClickHouse(unittest.TestCase):
         """Test failed connection to ClickHouse."""
         mock_client.side_effect = Exception("Connection failed")
         with self.assertRaises(ConnectionError):
-            ClickHouseConnector()
+            create_connection()
 
     @patch('src.clickhouse.Client')
-    def test_candles(self, mock_client):
-        """Test the candles method."""
+    def test_get_candles(self, mock_client):
+        """Test the get_candles function."""
         mock_instance = mock_client.return_value
         mock_rows = [
             (datetime(2023, 1, 1, 0, 0), 100, 102, 99, 101, 1000, 101000, 10, 500, 50500),
@@ -50,16 +50,16 @@ class TestClickHouse(unittest.TestCase):
         ]
         mock_instance.execute.return_value = mock_rows
         
-        connector = ClickHouseConnector()
-        df = connector.candles(exchange="BINANCE", symbol="BTCUSDT", timeframe="1m")
+        client = create_connection()
+        df = get_candles(client, symbol="BTCUSDT", timeframe="1m")
         
         self.assertIsInstance(df, pd.DataFrame)
         self.assertEqual(len(df), 2)
         self.assertIn("open", df.columns)
 
     @patch('src.clickhouse.Client')
-    def test_sentiment(self, mock_client):
-        """Test the sentiment method."""
+    def test_get_sentiment(self, mock_client):
+        """Test the get_sentiment function."""
         mock_instance = mock_client.return_value
         mock_rows = [
             (datetime(2023, 1, 1, 0, 0), 0.5, 0.1),
@@ -68,8 +68,8 @@ class TestClickHouse(unittest.TestCase):
         mock_columns = [('timestamp', 'DateTime'), ('sentiment', 'Float64'), ('confidence', 'Float64')]
         mock_instance.execute.return_value = (mock_rows, mock_columns)
 
-        connector = ClickHouseConnector()
-        df = connector.sentiment()
+        client = create_connection()
+        df = get_sentiment(client)
 
         self.assertIsInstance(df, pd.DataFrame)
         self.assertEqual(len(df), 2)
