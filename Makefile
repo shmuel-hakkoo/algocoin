@@ -1,5 +1,9 @@
-.PHONY: activate
+.PHONY: activate test
 
+
+test:
+	@echo "Running tests..."
+	@zsh -c "source ~/.venv/bin/activate && python -m unittest discover test"
 
 # Install UV before [https://docs.astral.sh/uv/#installation]
 

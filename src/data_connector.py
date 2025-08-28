@@ -12,8 +12,8 @@ import re
 
 import pandas as pd
 
-from csv_data import load_ohlcv_csv
-from clickhouse import ClickHouseConnector
+from .csv_data import load_ohlcv_csv
+from .clickhouse import ClickHouseConnector
 
 __all__ = ["DataConnector"]
 
