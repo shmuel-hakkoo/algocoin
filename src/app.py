@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
 
-from src import clickhouse as ch
+from src import db as ch
 
 st.set_page_config(layout="wide")
 
