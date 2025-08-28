@@ -36,7 +36,7 @@ watch:
 
 
 start:
-	streamlit run app.py
+	python -m streamlit run src/app.py
 
 
 # ClickHouse CSV Migration Commands

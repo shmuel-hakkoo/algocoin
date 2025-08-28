@@ -4,24 +4,28 @@ import pandas as pd
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
 
-from data_connector import DataConnector
+from src import clickhouse as ch
 
 st.set_page_config(layout="wide")
 
 st.title("Crypto Data Visualization")
 st.write("Displaying klines and sentiment data from ClickHouse.")
 
+@st.cache_resource
+def get_connection():
+    """Create and cache a ClickHouse connection."""
+    return ch.create_connection()
+
 @st.cache_data
 def load_data(start_date, end_date):
-    """Load data from ClickHouse using the DataConnector."""
-    connector = DataConnector()
+    """Load data from ClickHouse using the ClickHouse module."""
+    client = get_connection()
     klines_spec = {
-        "exchange": "BINANCE",
         "symbol": "BTCUSDT",
         "timeframe": "1m",
     }
-    klines_df = connector.load_klines("CLICKHOUSE", klines_spec, start=start_date, end=end_date)
-    sentiment_df = connector.load_sentiment(start=start_date, end=end_date)
+    klines_df = ch.get_candles(client, **klines_spec, start=start_date, end=end_date)
+    sentiment_df = ch.get_sentiment(client, start=start_date, end=end_date)
     return klines_df, sentiment_df
 
 # Date range selector
